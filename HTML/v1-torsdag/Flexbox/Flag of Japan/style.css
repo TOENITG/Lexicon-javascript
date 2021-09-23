@@ -1,0 +1,24 @@
+body {
+  background-color: #eee;
+
+  margin: 0;
+  height: 100vh;
+  display: flex;
+}
+
+main {
+  background-color: white;
+  width: 800px;
+  height: 520px;
+  margin: auto;
+  display: flex;
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.1);
+}
+
+aside {
+  width: 18rem;
+  height: 18rem;
+  border-radius: 1000px;
+  background-color: rgb(190, 24, 24);
+  margin: auto;
+}

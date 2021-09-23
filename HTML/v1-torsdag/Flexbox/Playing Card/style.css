@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  background-color: #999;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+article.card {
+  width: 260px;
+  height: 400px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 3rem;
+  border: 0.5rem solid white;
+  background-color: #f7f7f7;
+  color: rgb(206, 56, 56);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+}
+
+.card aside {
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card aside span {
+  color: #666;
+}
+
+.card aside.top {
+  margin: 0.5rem;
+  align-self: flex-end;
+}
+
+.card aside.bottom {
+  margin: 0.5rem;
+  align-self: flex-start;
+  transform: rotate(180deg);
+}

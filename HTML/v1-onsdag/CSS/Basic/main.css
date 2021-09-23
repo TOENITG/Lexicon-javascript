@@ -1,0 +1,45 @@
+body {
+  background-color: #706fd3;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+.top {
+  text-align: center;
+  color: pink;
+  width: 50%;
+  border-radius: 14px;
+  margin: auto;
+  display: block;
+}
+
+.top h1 {
+  text-transform: uppercase;
+}
+
+.bottom {
+  background-color: green;
+  color: red;
+  text-align: right;
+}
+/* Specificity */
+
+.bottom h1 {
+  text-align: center;
+}
+
+.btn {
+  font-size: 33px;
+  padding: 15px, 40px;
+  color: #e1b12c;
+  outline: none;
+  text-transform: uppercase;
+}
+.rounded {
+  border-radius: 45px;
+}
+
+/* Detta övrskriver body från ovan*/
+body {
+  background-color: sienna;
+}

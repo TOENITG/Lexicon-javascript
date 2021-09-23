@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css" >
+    <title>Tågluffare</title>
+</head>
+<body>
+    <main>
+    <h1>Tågluffarelinjen</h1>
+    <form>
+        <section>
+            <h3 class="small">Personlig information</h3>
+                    <article class="form-control">
+            <label for="name">Namn</label>
+            <input type="text" name="name" id="name" placeholder="John Doe" required>
+        </article>
+        <article class="form-control">
+            <label for ="tel_nummer">telefonnummer</label>
+            <input type="number" name="telephone" id="tel_nummer" placeholder="123456789" reqtured>
+        </article>
+        <article class="form-control">
+            <label for="email">E-mail</label>
+<!--
+    input:email#email
+-->
+
+            <input type="text" name="email" id="email" placeholder="john@doe.com" required>
+        </article>
+
+        </section>
+        <section>
+            <h3>Resinformation</h3>
+            <article class="form-control">
+                <label for="avresa">När åker du?</label>
+                <input type="date" name="avresa" id="avresa" required>
+            </article>
+            <article class="form-control">
+                <label for="hemresa">När kommer du hem?</label>
+                <input type="date" name="hemresa" id="hemresa" required>
+            </article>
+            <article class="form-control">
+                <label for="ensam" class="inline">Reser du ensam?</label>
+                <input type="checkbox" name="ensam" id="ensam">
+            </article>
+        </section>
+        <button type="submit" class="btn">Nu åker vi!</button>
+    </form>
+    </main>
+</body>
+</html>

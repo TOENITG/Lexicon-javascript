@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  font: 0.9rem sans-serif;
+}
+
+article {
+  max-width: 1000px;
+  width: 100%;
+  margin: 1rem;
+  background-color: #eee;
+  display: flex;
+}
+
+article.reverse {
+  flex-direction: row-reverse;
+}
+
+article section {
+  padding: 0.5rem;
+}
+
+article .box-1 {
+  background-color: rgba(100, 0, 0, 1);
+  flex: 0;
+}
+article .box-2 {
+  background-color: rgba(100, 20, 0, 1);
+  flex: 1;
+}
+article .box-3 {
+  background-color: rgba(100, 40, 0, 1);
+  flex: 1;
+}
+article .box-4 {
+  background-color: rgba(100, 60, 0, 1);
+  flex: 2;
+}
+article .box-5 {
+  background-color: rgba(100, 80, 0, 1);
+  flex: 3;
+}
+article .box-6 {
+  background-color: rgba(100, 100, 0, 1);
+  flex: 5;
+}
+article .box-7 {
+  background-color: rgba(100, 120, 0, 1);
+  flex: 8;
+}
+article .box-8 {
+  background-color: rgba(100, 140, 0, 1);
+  flex: 13;
+}
+article .box-9 {
+  background-color: rgba(100, 160, 0, 1);
+  flex: 21;
+}
+article .box-10 {
+  background-color: rgba(100, 180, 0, 1);
+  flex: 34;
+}
