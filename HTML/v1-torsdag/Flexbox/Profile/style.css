@@ -32,3 +32,36 @@ article.card {
   color: #333;
   cursor: ∏;
 }
+
+.card img.profile {
+  width: 7rem;
+  border-radius: 999rem;
+}
+
+.card h1 {
+  font-size: 1.3rem;
+  color: rgba(0, 0, 0, 0.8);
+  margin: 0.75rem 0 0.5rem 0;
+}
+
+.card p {
+  margin: 0;
+  padding: 0;
+}
+
+.card a {
+  text-decoration: none;
+  width: calc(100% - 1.3rem);
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #eee;
+  text-align: center;
+  margin: 1.5rem 0.5rem;
+  border-radius: 999rem;
+  font-size: 1.2rem;
+}
+
+.card a:hover {
+  background-color: #000;
+}
