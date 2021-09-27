@@ -1,0 +1,23 @@
+nav {
+  max-width: 1000px;
+  height: 3rem;
+  background-color: #eee;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: auto;
+}
+nav img {
+  height: 50%;
+  margin: auto auto auto 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #999;
+  margin: 1rem;
+}
+
+nav a:hover {
+  color: #222;
+}
