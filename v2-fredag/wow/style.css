@@ -1,0 +1,24 @@
+/*p {
+  margin: 0;
+  padding: 0;
+}
+*/
+.fizz {
+  background-color: cyan;
+  width: 8rem;
+}
+
+.buzz {
+  background-color: yellow;
+  width: 8rem;
+}
+
+.both {
+  background-color: magenta;
+  width: 8rem;
+}
+
+.variable {
+  background-color: chartreuse;
+  width: 8rem;
+}
