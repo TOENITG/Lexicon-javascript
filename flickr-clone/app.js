@@ -3,20 +3,28 @@ const queryInput = document.querySelector("#query");
 const list = document.querySelector("#list");
 const thumbnails = document.querySelector("#thumbnails");
 const details = document.querySelector("#details");
-const hideMeButton = document.querySelector("#hide-me");
+let hideMeButton = document.querySelector("#hide-me");
 const previousButton = document.querySelector("#previous");
 const nextButton = document.querySelector("#next");
+const restartButton = document.querySelector("#restart");
 
 var currentPage = 1;
 
-const getImages = async (imageQuery) => {
+const getImages = async (imageQuery = "recent", tags = "") => {
   while (thumbnails.hasChildNodes()) {
     thumbnails.removeChild(thumbnails.firstChild);
   }
-
-  const response = await fetch(
-    `https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&per_page=25&api_key=244003ddf73f37254d5631da9fa91bed&page=${currentPage}&format=json&nojsoncallback=1`
-  );
+  let response;
+  if (imageQuery === "recent") {
+    response = await fetch(
+      `https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&per_page=25&api_key=244003ddf73f37254d5631da9fa91bed&page=${currentPage}&format=json&nojsoncallback=1`
+    );
+  } else if (imageQuery === "tags") {
+    currentPage = 1;
+    response = await fetch(
+      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=244003ddf73f37254d5631da9fa91bed&tags=${tags}&page=${currentPage}&per_page=25&format=json&nojsoncallback=1`
+    );
+  }
   const data = await response.json();
   console.log(data);
   data.photos.photo.forEach((photo) => {
@@ -29,6 +37,7 @@ const getImages = async (imageQuery) => {
       "onClick",
       `imageDetails('${photo.server}', '${photo.id}', '${photo.secret}')`
     );
+    img.setAttribute("class", "tiny");
     thumbnails.appendChild(img);
   });
 };
@@ -43,15 +52,9 @@ const appendDetails = (key, value, element) => {
 
 const imageDetails = async (server, id, secret) => {
   details.style.display = "block";
-  while (details.hasChildNodes()) {
-    details.removeChild(details.firstChild);
+  while (details.childElementCount > 1) {
+    details.removeChild(details.lastChild);
   }
-  /*  <button id="hide-me">Hide Me</button>*/
-  let button = document.createElement("button");
-  button.setAttribute("id", "hide-me");
-  button.innerHTML = "Hide me";
-  details.appendChild(button);
-
   let img = document.createElement("img");
   img.setAttribute(
     "src",
@@ -75,6 +78,7 @@ const imageDetails = async (server, id, secret) => {
   tags.forEach((tag) => {
     let element = document.createElement("li");
     element.innerHTML = tag.raw;
+    element.setAttribute("onClick", `getImages('tags', '${tag.raw}')`);
     ul.appendChild(element);
   });
   details.appendChild(ul);
@@ -96,8 +100,15 @@ previousButton.addEventListener("click", (e) => {
 
 hideMeButton.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("here");
-  document.getElementById("details").style.display = "none";
+  console.log("Here!");
+  details.style.display = "none";
+});
+
+restartButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  details.style.display = "none";
+  currentPage = 1;
+  getImages();
 });
 
 searchForm.addEventListener("submit", (e) => {

@@ -1,9 +1,20 @@
 body {
+  background-color: #999;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(150px);
   margin: 0 10px 0 10px;
   padding: 8;
+}
+
+button {
+  margin: 10px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+button:active {
+  box-shadow: 5px 5px 5px #733;
+  color: #733;
 }
 
 #search-form {
@@ -16,11 +27,23 @@ body {
   flex-wrap: wrap;
 }
 
+#nav,
+#details-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 45px;
+}
+
 #details {
   width: 400px;
   background-color: #aaa;
   padding-left: 10px;
   display: none;
+}
+
+#details-header {
+  margin-bottom: 5px;
 }
 
 img.tiny {
@@ -29,4 +52,17 @@ img.tiny {
   display: block;
   width: 150px;
   height: 150px;
+  border: 5px solid #aaa;
+}
+
+img.tiny:hover {
+  padding: 5px;
+  border: none;
+  background: linear-gradient(to right, red, purple);
+}
+
+li:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
