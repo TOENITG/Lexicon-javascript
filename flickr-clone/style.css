@@ -1,0 +1,32 @@
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(150px);
+  margin: 0 10px 0 10px;
+  padding: 8;
+}
+
+#search-form {
+  display: none;
+}
+
+#thumbnails {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#details {
+  width: 400px;
+  background-color: #aaa;
+  padding-left: 10px;
+  display: none;
+}
+
+img.tiny {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 150px;
+  height: 150px;
+}
