@@ -9,24 +9,39 @@ const nextButton = document.querySelector("#next");
 const restartButton = document.querySelector("#restart");
 
 var currentPage = 1;
-var tags = "";
 var imageQuery = "recent";
+var tag = "";
 
-const getImages = async (action = "recent", tags = "") => {
-  console.log("action: ", action);
-  imageQuery = action;
+const getImages = async (action, tags) => {
+  console.log(currentPage);
   while (thumbnails.hasChildNodes()) {
     thumbnails.removeChild(thumbnails.firstChild);
   }
+
+  if (imageQuery === "first") {
+    currentPage = 1;
+    imageQuery = "recent";
+  } else if (imageQuery !== action && action === "tags") {
+    tag = tags;
+    currentPage = 1;
+    imageQuery = "tags";
+  } else if (imageQuery !== action && action === "recent") {
+    imageQuery = "recent";
+    tag = "";
+    currentPage = 1;
+  } else if ((action = "tags" && tags !== tag)) {
+    tag = tags;
+    currentPage = 1;
+  }
+
   let response;
   if (imageQuery === "recent") {
     response = await fetch(
       `https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&per_page=25&api_key=244003ddf73f37254d5631da9fa91bed&page=${currentPage}&format=json&nojsoncallback=1`
     );
   } else if (imageQuery === "tags") {
-    currentPage = 1;
     response = await fetch(
-      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=244003ddf73f37254d5631da9fa91bed&tags=${tags}&page=${currentPage}&per_page=25&format=json&nojsoncallback=1`
+      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=244003ddf73f37254d5631da9fa91bed&tags=${tag}&page=${currentPage}&per_page=25&format=json&nojsoncallback=1`
     );
   }
   const data = await response.json();
@@ -46,7 +61,7 @@ const getImages = async (action = "recent", tags = "") => {
   });
 };
 
-getImages(imageQuery);
+getImages("first");
 
 const appendDetails = (key, value, element) => {
   let elementToAdd = document.createElement("p");
@@ -91,14 +106,14 @@ const imageDetails = async (server, id, secret) => {
 nextButton.addEventListener("click", (e) => {
   e.preventDefault();
   currentPage++;
-  getImages(imageQuery);
+  getImages(imageQuery, tag);
 });
 
 previousButton.addEventListener("click", (e) => {
   e.preventDefault();
   if (currentPage > 1) {
     currentPage--;
-    getImages(imageQuery);
+    getImages(imageQuery, tag);
   }
 });
 
