@@ -1,0 +1,17 @@
+body {
+    justify-content: center;
+    align-items:center;
+    flex: 1;
+}
+
+.base {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-wrap: wrap;
+}
+
+.image {
+    width: 100%;
+}
